@@ -16,10 +16,9 @@ import cv2
 import numpy as np
 
 class Operation:
-    def __init__(self, nome, *args, **kwargs):
+    def __init__(self, nome, *args,):
         self.nome = nome
         self.args = args
-        self.kwargs = kwargs
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -31,7 +30,7 @@ class MainWindow(QMainWindow):
         self.default_operations =  [
             Operation("Converter para Cinza", 0),
             Operation("Aplicar Filtro - Gaussian Blur", 0), 
-            Operation("Detectar Bordas - Canny"), 
+            Operation("Detectar Bordas - Canny", 0, 0), 
             Operation("Binarizar Imagem"), 
             Operation("Morfologia Matemática - erosão")
         ]
