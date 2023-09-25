@@ -11,13 +11,14 @@ class Operation:
         self.name = name
         self.args = args
     
-        
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowIcon(QIcon("icon.png"))
-        self.setWindowTitle("Trabalho Bimestral")
+        self.setWindowTitle("Cores, Filtros, Binarização e Morfologia")
+        self.setGeometry(100, 100, 350, 500)
         
+        #-------------------------------
+                
         self.selected_image = None
         self.selected_operation = None
         self.operations_toDo = []
@@ -38,18 +39,17 @@ class MainWindow(QMainWindow):
             Operation("Erosão", 3, 1),
             Operation("Dilatação", 3, 1)
         ]
+
+        #-------------------------------
         
-        self.setWindowTitle("Trabalho Bimestral")
-        self.setGeometry(100, 100, 350, 500)
-
         main_layout = QHBoxLayout()
-
         self.lateral_widget = QWidget()
         self.lateral_layout = QVBoxLayout()
 
         self.open_button = QPushButton("Abrir Imagem")
+        self.open_button.setFixedSize(100, 25)
         self.open_button.clicked.connect(self.open_image)
-        self.lateral_layout.addWidget(self.open_button)
+        self.lateral_layout.addWidget(self.open_button, alignment=Qt.AlignCenter)
 
         self.operation_list = QListWidget()
         self.operation_list.itemClicked.connect(self.get_current_operation) 
