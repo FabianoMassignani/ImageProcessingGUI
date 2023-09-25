@@ -16,9 +16,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Cores, Filtros, Binarização e Morfologia")
         self.setGeometry(100, 100, 350, 500)
-        
-        #-------------------------------
-                
+
         self.selected_image = None
         self.selected_operation = None
         self.operations_toDo = []
